@@ -8,7 +8,7 @@ namespace Goat2d
 {
 namespace core
 {
-	//size, position and its filling color
+	//position, size and its filling color
 	typedef std::tuple<Vector2i, Vector2i, Color> rect_data;
 
 	//outline width and its color

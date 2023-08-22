@@ -37,10 +37,10 @@ Rectangle::Rectangle(const rect_data& parameters,
 	fill_rect->h = size.y;
 
 	outline = new SDL_Rect;
-	outline->w = outline_parameters.first * 2;
-	outline->h = outline_parameters.first * 2;
-	outline->x = pos.x;
-	outline->y = pos.y;
+	outline->w = this->size.x+outline_parameters.first * 2;
+	outline->h = this->size.y+outline_parameters.first * 2;
+	outline->x = pos.x-(outline_parameters.first);
+	outline->y = pos.y-(outline_parameters.first);
 
 
 	outline_color = new Color;
