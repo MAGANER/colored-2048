@@ -60,3 +60,7 @@ void Text::update_pos(const Vector2i& new_pos)
 {
 	pos = new_pos;
 }
+void Text::set_color(const Color& color)
+{
+	SDL_SetTextureColorMod(text_texture, color.r, color.g, color.b);
+}

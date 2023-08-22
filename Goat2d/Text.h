@@ -27,6 +27,7 @@ namespace core
 
 		void draw(const Vector2i& position) override;
 		void update_pos(const Vector2i& new_pos) override;
+		void set_color(const Color& color);
 
 		bool is_ok()const { return ok; }
 	};
