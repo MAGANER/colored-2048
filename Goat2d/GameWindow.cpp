@@ -105,6 +105,15 @@ void GameWindow::run()
 	SDL_Event e;
 	while (!quit)
 	{
+		if (should_change())
+		{
+			auto next_scene_id = get_next_id();
+			if (!change_scene(next_scene_id))
+			{
+				std::cout << "can't change scene!";
+			}
+		}
+
 		if (SDL_WaitEvent(&e) != 0)
 		{
 			quit_event->process(static_cast<void*>(&e));

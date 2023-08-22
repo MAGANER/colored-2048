@@ -31,7 +31,7 @@ namespace framework
 		bool should_change = false; //if true than should switch to another scene
 
 		void* return_value = nullptr;//data that can be passed to next scene
-		int id = 0;
+		int id = 0, next_id = -1;
 	public:
 		BaseScene(int id, SDL_Renderer* renderer):id(id),renderer(renderer){}
 		virtual ~BaseScene(){}
@@ -43,6 +43,7 @@ namespace framework
 		bool change()const { return should_change; }
 		void const* get_return_value()const { return return_value; }
 		int get_id()const { return id; }
+		int get_next_id()const { return next_id; }
 
 
 		//these functions are used by SceneManager
@@ -106,6 +107,8 @@ namespace framework
 			return new core::Text(*font, text, pos, renderer, color);
 		}
 
+
+		void set_next_id(int id) { next_id = id; }
 	};
 };
 };
