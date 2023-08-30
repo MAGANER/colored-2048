@@ -4,6 +4,7 @@
 #include"DeathScreen.h"
 #include"VictoryScreen.h"
 
+
 bool load_fonts(std::unordered_map<int, Goat2d::core::Font*>& fonts);
 int SDL_main(int argc, char* args[])
 {

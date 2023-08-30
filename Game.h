@@ -14,7 +14,7 @@ constexpr const auto DIFF = 123 / 4;//use it to compute text positions
 
 class Game :public Goat2d::framework::BaseScene
 {
-	std::list<Rectangle*> background;
+	std::list<Goat2d::core::Rectangle*> background;
 	Matrix<el>* field = nullptr;
 
 	Color** colors = nullptr;
