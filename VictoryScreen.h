@@ -1,5 +1,6 @@
 #ifndef VICTORY_SCREEN_H
 #define VICTORY_SCREEN_H
+#define USE_SDL_TTF
 #include"Goat2d/Scene.h"
 #include<vector>
 

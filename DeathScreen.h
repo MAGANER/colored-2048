@@ -1,5 +1,6 @@
 #ifndef DEATH_SCREEN_H
 #define DEATH_SCREEN_H
+#define USE_SDL_TTF
 #include"Goat2d/Scene.h"
 #include<vector>
 class DeathScreen :public Goat2d::framework::BaseScene

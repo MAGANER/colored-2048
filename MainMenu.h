@@ -1,5 +1,6 @@
 #ifndef MAIN_MENU_H
 #define MAIN_MENU_H
+#define USE_SDL_TTF
 #include"Goat2d/Scene.h"
 #include<vector>
 #include<random>

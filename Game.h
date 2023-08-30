@@ -1,5 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
+#define USE_SDL_TTF
 #include"Goat2d/Scene.h"
 #include<list>
 #include<random>
