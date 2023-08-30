@@ -310,8 +310,8 @@ void Game::create_check_losing_event()
 	{
 		set_next_id(2);
 		should_change = true;
-		auto hs = get_high_score();
-		return_value = static_cast<void*>((int*)&hs);
+		high_score = get_high_score();
+		return_value = static_cast<void*>((int*)&high_score);
 	};
 
 	auto event = new Goat2d::framework::SimpleEvent(check_losing,

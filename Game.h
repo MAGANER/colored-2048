@@ -21,7 +21,7 @@ class Game :public Goat2d::framework::BaseScene
 
 	int complexity_level;
 	Font *font, *small_font; 
-
+	int high_score = 0;
 public:
 	Game(int id, 
 		 SDL_Renderer* renderer, 
