@@ -33,10 +33,14 @@ namespace core
 		{
 			return Vector2(x * number, y * number);
 		}
-
 		~Vector2(){}
 	};
 
+	template<class T>
+	bool operator==(const Vector2<T>& a, const Vector2<T>& b)
+	{
+		return a.x == b.x and a.y == b.y;
+	}
 
 	typedef Vector2<int> Vector2i;
 	typedef Vector2<float> Vector2f;
