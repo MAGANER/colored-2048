@@ -8,6 +8,7 @@ Game::Game(int id,
 {
 	this->complexity_level = complexity_level;
 	this->font = fonts[70];
+	small_font = fonts[60];
 	
 
 	this->field = new Matrix<el>(4, 4);
@@ -23,6 +24,7 @@ Game::Game(int id,
 	create_right_movement_event();
 	create_up_movement_event();
 	create_down_movement_event();
+	create_check_losing_event();
 }
 Game::~Game()
 {
@@ -139,7 +141,10 @@ void Game::draw_blocks()
 				auto t_text = to_string(b.second);
 				if (t_text.size() == 2)t_pos.x -= 20;
 				if (t_text.size() == 3)t_pos.x -= 40;
-				auto t = create_colored_text(t_text, t_pos, Color(0, 0, 0, 255), font);
+				if (t_text.size() == 4)t_pos.x -= 50;
+
+				auto _font = t_text.size() == 4 ? small_font : this->font;
+				auto t = create_colored_text(t_text, t_pos, Color(0, 0, 0, 255), _font);
 				t->draw(t->get_pos());
 				delete t;
 
@@ -294,4 +299,44 @@ Vector2i Game::compute_text_pos(const Vector2i& pos)
 {
 	return Goat2d::core::Vector2i(15 + pos.x + DIFF,
 		-5 + pos.y + DIFF);
+}
+void Game::create_check_losing_event()
+{
+	auto check_losing = [&](void* e)
+	{
+		return get_empty_cells().empty();
+	};
+	auto change_scene = [&](void* e)
+	{
+		set_next_id(2);
+		should_change = true;
+		auto hs = get_high_score();
+		return_value = static_cast<void*>((int*)&hs);
+	};
+
+	auto event = new Goat2d::framework::SimpleEvent(check_losing,
+													change_scene, 
+													Goat2d::framework::EventType::conditional);
+	event_manager.add_event(event);
+}
+int Game::get_high_score()
+{
+	vector<int> points;
+	for (size_t y = 0; y < 4; y++)
+	{
+		for (size_t x = 0; x < 4; x++)
+		{
+			auto _el = field->get_elem(x, y);
+			if (holds_alternative<el>(_el))
+			{
+				auto _block = get<el>(_el);
+				if (holds_alternative<block>(_block))
+				{
+					points.push_back(get<block>(_block).second);
+				}
+			}
+		}
+	}
+
+	return *max_element(points.begin(), points.end());
 }

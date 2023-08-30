@@ -20,7 +20,7 @@ class Game :public Goat2d::framework::BaseScene
 	const size_t COLORS_NUMBER = 3;
 
 	int complexity_level;
-	Font* font; 
+	Font *font, *small_font; 
 
 public:
 	Game(int id, 
@@ -54,6 +54,9 @@ private:
 	void create_right_movement_event();
 	void create_up_movement_event();
 	void create_down_movement_event();
+	void create_check_losing_event();
+
+	int get_high_score();
 
 	Vector2i compute_text_pos(const Vector2i& pos);
 
