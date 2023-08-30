@@ -16,10 +16,9 @@ namespace core
 	static void write_error(const std::string& additional_info)
 	{
 		std::time_t t = std::time(0);
-		auto log_file_name = std::string(std::ctime(&t));
-
-		std::ofstream f(log_file_name);
-		f << additional_info << SDL_GetError()<<std::endl;
+		auto time = std::string(std::ctime(&t));
+		std::ofstream f("error_log.txt",std::ios::app);
+		f <<time<<" : "<< additional_info << SDL_GetError() << std::endl;
 	}
 	//TODO:: write same proceduras for Goat2d errors
 };
