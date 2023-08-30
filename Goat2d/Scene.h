@@ -44,6 +44,7 @@ namespace framework
 		void const* get_return_value()const { return return_value; }
 		int get_id()const { return id; }
 		int get_next_id()const { return next_id; }
+		SDL_Renderer* get_renderer() { return renderer; }
 
 
 		//these functions are used by SceneManager
