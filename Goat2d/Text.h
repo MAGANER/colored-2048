@@ -17,6 +17,9 @@ namespace core
 
 		SDL_Texture* text_texture = nullptr;
 		SDL_Rect* rect = nullptr;
+		
+		Font* font;
+		Color color;
 	public:
 		Text(const Font& font,
 			 const std::string& text,
@@ -30,6 +33,8 @@ namespace core
 		void set_color(const Color& color);
 
 		bool is_ok()const { return ok; }
+
+		Text* update_text(const std::string& text);
 	};
 };
 };
