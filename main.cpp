@@ -49,6 +49,10 @@ bool load_fonts(std::unordered_map<int, Goat2d::core::Font*>& fonts)
 	if (!fonts[36]->is_ok())
 		return false;
 
+	fonts[60] = new Goat2d::core::Font("font.ttf", 60);
+	if (!fonts[60]->is_ok())
+		return false;
+
 	fonts[70] = new Goat2d::core::Font("font.ttf", 70);
 	if (!fonts[70]->is_ok())
 		return false;
