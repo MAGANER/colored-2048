@@ -16,6 +16,13 @@ namespace core
 		dest->b = source->b;
 		dest->a = source->a;
 	}
+	static inline bool compare_colors(Color* a, Color* b)
+	{
+		return a->r == b->r and
+			   a->b == b->b and
+			   a->g == b->g and
+			   a->a == b->a;
+	}
 };
 };
 #endif
