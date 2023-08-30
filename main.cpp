@@ -44,7 +44,7 @@ int SDL_main(int argc, char* args[])
 	};
 	window.add_scene(3, generate_victory_screen);
 
-	window.set_start_scene_id(3);
+	window.set_start_scene_id(0);
 
 	if (window.is_ok())
 		window.run();
