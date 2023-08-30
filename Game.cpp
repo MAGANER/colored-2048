@@ -17,7 +17,7 @@ Game::Game(int id,
 	init_colors();
 	init_field();
 
-	for (size_t i = 0; i < 3; i++)generate_random_block();
+	for (size_t i = 0; i < 2; i++)generate_random_block();
 
 
 	create_left_movement_event();
