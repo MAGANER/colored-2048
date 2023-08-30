@@ -2,7 +2,7 @@
 #include"MainMenu.h"
 #include"Game.h"
 #include"DeathScreen.h"
-
+#include"VictoryScreen.h"
 
 bool load_fonts(std::unordered_map<int, Goat2d::core::Font*>& fonts);
 int SDL_main(int argc, char* args[])
@@ -38,7 +38,13 @@ int SDL_main(int argc, char* args[])
 	};
 	window.add_scene(2, generate_death_screen);
 
-	window.set_start_scene_id(0);
+	auto generate_victory_screen = [&](void* ret_val) -> Goat2d::framework::BaseScene*
+	{
+		return new VictoryScreen(3, window.get_renderer(), fonts);
+	};
+	window.add_scene(3, generate_victory_screen);
+
+	window.set_start_scene_id(3);
 
 	if (window.is_ok())
 		window.run();
