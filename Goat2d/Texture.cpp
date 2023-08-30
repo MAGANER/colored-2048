@@ -1,4 +1,5 @@
 #include"Texture.h"
+#ifdef USE_SDL_IMG
 using namespace Goat2d::core;
 
 Texture::Texture(const std::string& path, SDL_Renderer* renderer):
@@ -51,3 +52,4 @@ Texture::~Texture()
 
 	SDL_DestroyTexture(texture);
 }
+#endif

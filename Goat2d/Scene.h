@@ -69,10 +69,13 @@ namespace framework
 		//because it's incapsulated and unable to be used by other classes
 		
 		//these function are dedicated to framework's user to simplify creation of game objects
+
+	#ifdef USE_SDL_IMG
 		inline core::Texture* create_texture(const std::string& path)
 		{
 			return new core::Texture(path, renderer);
 		}
+	#endif
 
 		inline core::Rectangle* create_rect(const core::rect_data& parameters)
 		{
@@ -99,6 +102,8 @@ namespace framework
 		{
 			return new core::Point(point, color, renderer);
 		}
+
+	//#ifdef USE_SDL_TTF
 		inline core::Text* create_white_text(const std::string& text,const core::Vector2i& pos, core::Font* font)
 		{
 			return new core::Text(*font, text, pos, renderer);
@@ -107,7 +112,7 @@ namespace framework
 		{
 			return new core::Text(*font, text, pos, renderer, color);
 		}
-
+	//#endif
 
 		void set_next_id(int id) { next_id = id; }
 	};

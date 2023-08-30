@@ -1,4 +1,6 @@
 #include"Text.h"
+#ifdef USE_SDL_TTF
+
 using namespace Goat2d::core;
 
 Text::Text(const Font& font,
@@ -74,3 +76,4 @@ Text* Text::update_text(const std::string& text)
 
 	return new Text(*font, text, pos, renderer, color);
 }
+#endif

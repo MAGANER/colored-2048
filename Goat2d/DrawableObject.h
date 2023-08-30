@@ -1,6 +1,12 @@
 #ifndef DRAWABLE_OBJECT_H
 #define DRAWABLE_OBJECT_H
+
+#include"SDL.h"
+
+//#ifdef USE_SDL_IMG
 #include"SDL_image.h"
+//#endif
+
 #include"Vector.h"
 namespace Goat2d
 {

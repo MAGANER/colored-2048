@@ -1,3 +1,6 @@
+#include"Goat2d/Definitors.hpp"
+#ifdef USE_SDL_IMG
+
 #ifndef TEXTURE_H
 #define TEXTURE_H
 #include"DrawableObject.h"
@@ -35,4 +38,5 @@ namespace core
 
 };
 };
-#endif
+#endif //TEXTURE_H
+#endif //USE_SDL_TTF

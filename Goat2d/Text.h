@@ -1,3 +1,6 @@
+#include"Goat2d/Definitors.hpp"
+#ifdef USE_SDL_TTF
+
 #ifndef TEXT_H
 #define TEXT_H
 #include"DrawableObject.h"
@@ -38,4 +41,5 @@ namespace core
 	};
 };
 };
-#endif
+#endif //TEXT_H
+#endif //USE_SDL_TTF

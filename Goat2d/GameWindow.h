@@ -1,7 +1,17 @@
 #ifndef GAME_WINDOW_H
 #define GAME_WINDOW_H
-#include"SceneManager.h"
+
+#include"Goat2d/Definitors.hpp"
+
+#ifdef USE_SDL_TTF
 #include"SDL_ttf.h"
+#endif
+
+#include"SceneManager.h"
+#include"ErrorLogger.h"
+
+#include<string>
+
 namespace Goat2d
 {
 namespace core

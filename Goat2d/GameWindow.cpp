@@ -37,6 +37,7 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 			//set it to false if any subsystem is not loaded correctly
 			bool correct_init = true;
 
+	#ifdef USE_SDL_IMG
 			//init img library
 			if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
 			{
@@ -45,7 +46,9 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 
 				correct_init = false;
 			}
-			
+	#endif //USE_SDL_IMG
+
+	#ifdef USE_SDL_TTF
 			//init ttf library
 			if (TTF_Init() == -1)
 			{
@@ -53,6 +56,7 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 				if (write_error)::write_error("SDL_ttf could not initialize! SDL_ttf Error:");
 				correct_init = false;
 			}
+	#endif //USE_SDL_TTF
 
 			//init renderer
 			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
@@ -88,8 +92,13 @@ GameWindow::~GameWindow()
 
 	//Quit SDL subsystems
 	SDL_Quit();
+
+#ifdef USE_SDL_TTF
 	TTF_Quit();
+#endif
+#ifdef USE_SDL_IMG
 	IMG_Quit();
+#endif
 
 	if (quit_event != nullptr)
 		delete quit_event;

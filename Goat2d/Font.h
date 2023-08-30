@@ -1,3 +1,6 @@
+#include"Goat2d/Definitors.hpp"
+
+#ifdef USE_SDL_TTF
 #ifndef FONT_H
 #define FONT_H
 #include"SDL_ttf.h"
@@ -35,5 +38,5 @@ namespace core
 	};
 };
 };
-
+#endif //USE_SDL_TTF
 #endif //FONT_H
